@@ -11,7 +11,6 @@ description = "Test plugin for paperweight-userdev"
 
 java {
   // Configure the java toolchain. This allows gradle to auto-provision JDK 21 on systems that only have JDK 11 installed for example.
-  vendor.set(JvmVendorSpec.ORACLE)
   toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
