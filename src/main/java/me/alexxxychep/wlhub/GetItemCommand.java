@@ -1,6 +1,6 @@
 package me.alexxxychep.wlhub;
 
-import me.alexxxychep.wlhub.items.WLItem;
+import me.alexxxychep.wlhub.items.WLItems;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,7 +13,7 @@ public class GetItemCommand implements CommandExecutor {
         Player player = (Player) commandSender;
 
         String item = strings[0];
-        player.getInventory().addItem(WLItem.getItemFromName(item).getItem(1));
+        player.getInventory().addItem(WLItems.getItemFromName(item).getItem(1));
         return true;
     }
 }

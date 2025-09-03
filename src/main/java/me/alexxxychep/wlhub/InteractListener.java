@@ -1,6 +1,7 @@
 package me.alexxxychep.wlhub;
 
 import me.alexxxychep.wlhub.items.WLItem;
+import me.alexxxychep.wlhub.items.WLItems;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,11 +17,11 @@ public class InteractListener implements Listener {
         }
         Player player = event.getPlayer();
         ItemStack item = player.getInventory().getItemInMainHand();
-        if (item.getType().isAir() && !WLItem.isWLItem(item)) {
+        if (item.getType().isAir() && !WLItems.isWLItem(item)) {
             return;
         }
 
-        WLItem wlItem = WLItem.getItemFromItemMeta(item.getItemMeta());
+        WLItem wlItem = WLItems.getItemFromItemMeta(item.getItemMeta());
 
         if(wlItem instanceof Interactable) {
             ((Interactable) wlItem).onInteract(player);
@@ -34,11 +35,13 @@ public class InteractListener implements Listener {
             return;
         }
         ItemStack item = event.getCursor();
-        if (item.getType().isAir() && !WLItem.isWLItem(item)) {
+        assert item != null;
+        if (item.getType().isAir() && !WLItems.isWLItem(item)) {
             return;
         }
 
-        WLItem wlItem = WLItem.getItemFromItemMeta(item.getItemMeta());
+        WLItem wlItem = WLItems.getItemFromItemMeta(item.getItemMeta());
+
         if(wlItem instanceof GuiInteractable) {
             ((GuiInteractable) wlItem).onInteract(player);
             event.setCancelled(true);

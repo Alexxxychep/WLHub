@@ -1,6 +1,5 @@
 package me.alexxxychep.wlhub;
 
-import me.alexxxychep.wlhub.items.WLItem;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
@@ -26,8 +25,6 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new InteractListener(), this);
         getCommand("getWLItem").setExecutor(new GetItemCommand());
         getCommand("openGui").setExecutor(new OpenGuiCommand());
-
-        WLItem.registerItems();
     }
 
     public static Main getInstance() {
